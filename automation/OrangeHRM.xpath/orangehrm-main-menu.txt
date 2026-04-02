@@ -1,6 +1,7 @@
 # XPath Locators for OrangeHRM - Main Menu
 
 Application: OrangeHRM
+Website: https://opensource-demo.orangehrmlive.com/
 Section: Main menu (sidebar)
 
 ---
