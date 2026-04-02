@@ -1,0 +1,38 @@
+# XPath Locators for OrangeHRM - Main Menu
+
+Application: OrangeHRM
+Section: Main menu (sidebar)
+
+---
+
+## SVG icons in the main menu
+
+### Using the descendant:: axis (correct form)
+//ul[contains(@class,"oxd-main-menu")]/descendant::svg[@role="presentation"]
+
+### Shortened form (equivalent)
+//ul[contains(@class,"oxd-main-menu")]//svg[@role="presentation"]
+
+---
+
+## Notes
+
+- The class "oxd-main-menu" may be accompanied by other dynamically added classes (Vue.js),
+  which is why contains() is used instead of an exact match with @class="..."
+
+- SVGs have the attribute role="presentation" (ARIA) - useful as a stable selector
+
+- The combination //descendant:: is redundant:
+    WRONG:   //ul[...]//descendant::svg  (double)
+    CORRECT: //ul[...]/descendant::svg   (single slash + axis)
+
+---
+
+## XPath Axes Used
+
+| Axis                | Example                                                                         |
+|---------------------|---------------------------------------------------------------------------------|
+| descendant::        | //ul[contains(@class,"oxd-main-menu")]/descendant::svg                          |
+| ancestor::          | //svg[@role="presentation"]/ancestor::ul[contains(@class,"oxd-main-menu")]      |
+| following-sibling:: | //svg[@role="presentation"]/following-sibling::span                             |
+| child::             | //ul[contains(@class,"oxd-main-menu")]/child::li/descendant::svg                |

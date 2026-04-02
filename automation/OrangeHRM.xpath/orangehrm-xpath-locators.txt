@@ -1,0 +1,77 @@
+# XPath Locators - OrangeHRM
+# Application: OrangeHRM
+# Page: Admin Dashboard
+# Format: with-axis / without-axis
+
+# ============================================================
+# SECTION 1: SIDEBAR
+# ============================================================
+
+# --- Logo ---
+with-axis:    //div[@class="oxd-brand-banner"]/descendant::img
+without-axis: //img[@alt="client brand banner"]
+
+# --- Admin Item Container (Icon + Text) ---
+with-axis:    //ul[@class="oxd-main-menu"]/descendant::li[1][@class="oxd-main-menu-item-wrapper"]
+without-axis: //li[1][@class="oxd-main-menu-item-wrapper"]
+
+# --- Admin Link ---
+with-axis:    //ul[@class="oxd-main-menu"]/descendant::a[@class="oxd-main-menu-item active"]
+without-axis: //a[@class="oxd-main-menu-item active"]
+
+# --- Admin Icon (SVG) ---
+with-axis:    // TODO: not found yet
+without-axis: // TODO: not found yet
+
+# --- Admin Text ---
+with-axis:    //li[1][@class="oxd-main-menu-item-wrapper"]/descendant::span
+without-axis: //span[@class="oxd-text oxd-text--span oxd-main-menu-item--name"][contains(.,"Admin")]
+
+# ============================================================
+# SECTION 2: TOPBAR - USER DROPDOWN
+# ============================================================
+
+# --- User Dropdown Container ---
+with-axis:    //div[@class="oxd-topbar-header-userarea"]/descendant::li[@class="oxd-userdropdown"]
+without-axis: //li[@class="oxd-userdropdown"]
+
+# --- User Dropdown Trigger (Icon + Text + Arrow) ---
+with-axis:    //li[@class="oxd-userdropdown"]/descendant::span[@class="oxd-userdropdown-tab"]
+without-axis: //span[@class="oxd-userdropdown-tab"]
+
+# --- User Dropdown Icon ---
+with-axis:    //div[@class="oxd-topbar-header-userarea"]/descendant::img
+without-axis: //img[@alt="profile picture"]
+
+# --- User Dropdown Text ---
+with-axis:    //div[@class="oxd-topbar-header-userarea"]/descendant::p
+without-axis: //p[@class="oxd-userdropdown-name"]
+              //p[contains(.,"Maher Afqi")]
+
+# --- User Dropdown Arrow ---
+with-axis:    //div[@class="oxd-topbar-header-userarea"]/descendant::i
+without-axis: //i[@class="oxd-icon bi-caret-down-fill oxd-userdropdown-icon"]
+
+# ============================================================
+# SECTION 3: TOPBAR - USER MANAGEMENT
+# ============================================================
+
+# --- User Management Container ---
+with-axis:    //nav[@class="oxd-topbar-body-nav"]/descendant::li[1]
+without-axis: //li[1][@class="oxd-topbar-body-nav-tab --parent --visited"]
+
+# --- User Management Text ---
+with-axis:    //nav[@class="oxd-topbar-body-nav"]/descendant::span[contains(.,"User Management ")]
+without-axis: //span[contains(.,"User Management ")]
+
+# --- User Management Arrow ---
+with-axis:    //li[1][@class="oxd-topbar-body-nav-tab --parent --visited"]/descendant::i[@class="oxd-icon bi-chevron-down"]
+without-axis: //li[1]/span/i[@class="oxd-icon bi-chevron-down"]
+
+# ============================================================
+# SECTION 4: LOGIN PAGE
+# ============================================================
+
+# --- Username Input ---
+with-axis:    //div[@class="oxd-input-group__label-wrapper"]/following::input[@class="oxd-input oxd-input--active"]
+without-axis: // TODO: not found yet
