@@ -69,9 +69,61 @@ with-axis:    //li[1][@class="oxd-topbar-body-nav-tab --parent --visited"]/desce
 without-axis: //li[1]/span/i[@class="oxd-icon bi-chevron-down"]
 
 # ============================================================
-# SECTION 4: LOGIN PAGE
+# SECTION 4: ADMIN > USER MANAGEMENT > USERS - SEARCH FORM
 # ============================================================
 
 # --- Username Input ---
 with-axis:    //div[@class="oxd-input-group__label-wrapper"]/following::input[@class="oxd-input oxd-input--active"]
-without-axis: // TODO: not found yet
+without-axis: //div[contains(@class,"oxd-input-group")][.//div[@class="oxd-input-group__label-wrapper"]]//input[@class="oxd-input oxd-input--active"]
+
+# --- User Role - Container ---
+with-axis:    //div[@class="oxd-select-wrapper"]/preceding::div[@class="oxd-select-text oxd-select-text--active"]
+without-axis: (//div[@class="oxd-select-wrapper"])[1]
+
+# --- User Role - Select ---
+with-axis:    //div[@class="oxd-select-wrapper"]/preceding::div[@class="oxd-select-text-input"]
+without-axis: (//div[@class="oxd-select-text-input"])[1]
+
+# --- Employee Name - Container ---
+with-axis:    //div[@class="oxd-autocomplete-text-input--after"]/parent::div[@class="oxd-autocomplete-text-input oxd-autocomplete-text-input--active"]
+without-axis: //div[@class="oxd-autocomplete-text-input oxd-autocomplete-text-input--active"]
+
+# --- Employee Name - Input ---
+with-axis:    //div[@class="oxd-autocomplete-text-input oxd-autocomplete-text-input--active"]/descendant::input[@placeholder="Type for hints..."]
+without-axis: //input[@placeholder="Type for hints..."]
+
+# --- Reset Button ---
+with-axis:    //div[@class="oxd-form-actions"]/descendant::button[@class="oxd-button oxd-button--medium oxd-button--ghost"]
+without-axis: //button[@class="oxd-button oxd-button--medium oxd-button--ghost"]
+
+# --- Search Button ---
+with-axis:    //div[@class="oxd-form-actions"]/descendant::button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]
+without-axis: //button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]
+
+# --- Add Button ---
+with-axis:    //div[@class="orangehrm-header-container"]/descendant::button
+without-axis: //button[@class="oxd-button oxd-button--medium oxd-button--secondary"]
+
+# ============================================================
+# SECTION 5: ADMIN > USER MANAGEMENT > USERS - TABLE HEADERS
+# ============================================================
+
+# --- Username Column ---
+with-axis:    //div[@class="oxd-table-header"]/descendant::div[@role="columnheader"][contains(.,"Username")]
+without-axis: //div[@role="columnheader"][contains(.,"Username")]
+
+# --- User Role Column ---
+with-axis:    //div[@class="oxd-table-header"]/descendant::div[@role="columnheader"][contains(.,"User Role")]
+without-axis: //div[@role="columnheader"][contains(.,"User Role")]
+
+# --- Employee Name Column ---
+with-axis:    //div[@class="oxd-table-header"]/descendant::div[@role="columnheader"][contains(.,"Employee Name")]
+without-axis: //div[@role="columnheader"][contains(.,"Employee Name")]
+
+# --- Status Column ---
+with-axis:    //div[@class="oxd-table-header"]/descendant::div[@role="columnheader"][contains(.,"Status")]
+without-axis: //div[@role="columnheader"][contains(.,"Status")]
+
+# --- Actions Column ---
+with-axis:    //div[@class="oxd-table-header"]/descendant::div[@role="columnheader"][contains(.,"Actions")]
+without-axis: //div[@role="columnheader"][contains(.,"Actions")]
