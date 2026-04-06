@@ -23,6 +23,20 @@
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.30.0</version>
+        </dependency>
+
+        <!-- WebDriverManager (descarca ChromeDriver automat) -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -34,5 +48,7 @@
             </plugin>
         </plugins>
     </build>
+
+
 
 </project>
