@@ -44,7 +44,7 @@ public class ContactAppSignUpTests {
     }
 
     @Test //@Disabled
-    public void signUpButtonIsEnabled() throws InterruptedException {
+    public void signUpButtonIsEnabled() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/");
 
         WebElement signUpButton = driver.findElement(By.id("signup"));
@@ -60,7 +60,7 @@ public class ContactAppSignUpTests {
     }
 
     @Test @Disabled
-    public void signUpFormWithValidCred() throws InterruptedException {
+    public void signUpFormWithValidCred() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addUser");
 
         WebElement firstNameInput = driver.findElement(By.id("firstName"));
@@ -86,7 +86,7 @@ public class ContactAppSignUpTests {
     }
 
     @Test
-    public void signUpFormExistingCred() throws InterruptedException {
+    public void signUpFormExistingCred() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addUser");
 
         WebElement firstNameInput = driver.findElement(By.id("firstName"));

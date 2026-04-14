@@ -61,7 +61,7 @@ public class ContactAppLoginAndAddContactTests {
 
     @Test
     @Disabled
-    public void validLogin() throws InterruptedException {
+    public void validLogin() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlContains("contactList"));
@@ -93,7 +93,7 @@ public class ContactAppLoginAndAddContactTests {
     }
 
     @Test //@Disabled
-    public void addNewContactButtonIsEnabled() throws InterruptedException {
+    public void addNewContactButtonIsEnabled() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/contactList");
 
         WebElement newContactButton = driver.findElement(By.id("add-contact"));
