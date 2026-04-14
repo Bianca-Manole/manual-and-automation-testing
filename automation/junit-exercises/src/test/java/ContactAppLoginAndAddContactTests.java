@@ -1,4 +1,5 @@
 import java.time.Duration;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,7 +22,7 @@ public class ContactAppLoginAndAddContactTests {
     public static void before() {
         ChromeOptions chromeOption = new ChromeOptions();
 
-        chromeOption.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
+        chromeOption.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
         chromeOption.addArguments("disable-infobars");
         chromeOption.addArguments("disable-popup-blocking");
         chromeOption.addArguments("disable-default-apps");
@@ -38,6 +39,7 @@ public class ContactAppLoginAndAddContactTests {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
+
     @AfterAll
     public static void after() {
         //driver.close(); // closes current instance of browser / tab
@@ -57,7 +59,8 @@ public class ContactAppLoginAndAddContactTests {
         driver.findElement(By.id("submit")).click();
     }
 
-    @Test @Disabled
+    @Test
+    @Disabled
     public void validLogin() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -68,7 +71,8 @@ public class ContactAppLoginAndAddContactTests {
         );
     }
 
-    @Test @Disabled
+    @Test
+    @Disabled
     public void invalidLogin() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/logout");
 
@@ -98,7 +102,6 @@ public class ContactAppLoginAndAddContactTests {
 
         newContactButton.click();
 
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlContains("addContact"));
         Assertions.assertTrue(
@@ -107,10 +110,10 @@ public class ContactAppLoginAndAddContactTests {
         );
     }
 
-    @Test @Disabled
-    public void addContactWithMandatoryFields()  {
+    @Test
+    @Disabled
+    public void addContactWithMandatoryFields() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addContact");
-
 
         WebElement firstNameInput = driver.findElement(By.id("firstName"));
         WebElement lastNameInput = driver.findElement(By.id("lastName"));
@@ -119,9 +122,7 @@ public class ContactAppLoginAndAddContactTests {
         firstNameInput.sendKeys("andreea");
         lastNameInput.sendKeys("manole");
 
-
         submitButton.click();
-
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement contactNameDisplayed = wait.until(
@@ -131,10 +132,10 @@ public class ContactAppLoginAndAddContactTests {
 
     }
 
-    @Test @Disabled
-    public void addContactWithAllFields () {
+    @Test
+    @Disabled
+    public void addContactWithAllFields() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addContact");
-
 
         WebElement firstNameInput = driver.findElement(By.id("firstName"));
         WebElement lastNameInput = driver.findElement(By.id("lastName"));
@@ -161,7 +162,6 @@ public class ContactAppLoginAndAddContactTests {
         stateInput.sendKeys("Bucuresti");
         postalCodeInput.sendKeys("123456");
         countryInput.sendKeys("Romania");
-
 
         submitButton.click();
 
@@ -192,7 +192,8 @@ public class ContactAppLoginAndAddContactTests {
 
     }
 
-    @Test @Disabled
+    @Test
+    @Disabled
     public void addContactWithEmptyFirstName() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addContact");
 
@@ -211,9 +212,5 @@ public class ContactAppLoginAndAddContactTests {
         );
         Assertions.assertTrue(errorMsg.isDisplayed());
     }
-
-
-
-
 
 }
