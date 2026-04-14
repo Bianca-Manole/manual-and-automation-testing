@@ -216,6 +216,10 @@ public class DemoTool {
         driver.switchTo().frame("frame1"); //switch to html frame1 from within existing html
         WebElement sampleText = driver.findElement(By.id("sampleHeading"));
         Assertions.assertEquals("This is a sample page", sampleText.getText());
+
+        driver.switchTo().parentFrame();
+        WebElement infoLabel = driver.findElement(By.xpath("//div[@id=\"framesWrapper\"]/div[1]"));
+        Assertions.assertTrue(infoLabel.getText().contains("frame"));
     }
 
 }
