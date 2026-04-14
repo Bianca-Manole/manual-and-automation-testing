@@ -63,17 +63,17 @@ public class ContactAppSignUpTests {
     public void signUpFormWithValidCred() throws InterruptedException {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addUser");
 
-        WebElement firstName = driver.findElement(By.id("firstName"));
-        WebElement lastName = driver.findElement(By.id("lastName"));
-        WebElement email = driver.findElement(By.id("email"));
-        WebElement password = driver.findElement(By.id("password"));
+        WebElement firstNameInput = driver.findElement(By.id("firstName"));
+        WebElement lastNameInput = driver.findElement(By.id("lastName"));
+        WebElement emailInput = driver.findElement(By.id("email"));
+        WebElement passwordInput = driver.findElement(By.id("password"));
 
         WebElement submitButton = driver.findElement(By.id("submit"));
 
-        firstName.sendKeys("bianca");
-        lastName.sendKeys("manole");
-        email.sendKeys("bianca@manole.com");
-        password.sendKeys("1234567");
+        firstNameInput.sendKeys("bianca");
+        lastNameInput.sendKeys("manole");
+        emailInput.sendKeys("bianca@manole.com");
+        passwordInput.sendKeys("1234567");
 
         submitButton.click();
 
@@ -89,17 +89,17 @@ public class ContactAppSignUpTests {
     public void signUpFormExistingCred() throws InterruptedException {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addUser");
 
-        WebElement firstName = driver.findElement(By.id("firstName"));
-        WebElement lastName = driver.findElement(By.id("lastName"));
-        WebElement email = driver.findElement(By.id("email"));
-        WebElement password = driver.findElement(By.id("password"));
+        WebElement firstNameInput = driver.findElement(By.id("firstName"));
+        WebElement lastNameInput = driver.findElement(By.id("lastName"));
+        WebElement emailInput = driver.findElement(By.id("email"));
+        WebElement passwordInput = driver.findElement(By.id("password"));
 
         WebElement submitButton = driver.findElement(By.id("submit"));
 
-        firstName.sendKeys("bianca");
-        lastName.sendKeys("manole");
-        email.sendKeys("bianca@manole.com");
-        password.sendKeys("1234567");
+        firstNameInput.sendKeys("bianca");
+        lastNameInput.sendKeys("manole");
+        emailInput.sendKeys("bianca@manole.com");
+        passwordInput.sendKeys("1234567");
 
         submitButton.click();
 

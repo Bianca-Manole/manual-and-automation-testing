@@ -76,7 +76,6 @@ public class ContactAppLoginAndAddContactTests {
     public void invalidLogin() {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/logout");
 
-        // 2. Acum ești pe pagina de login, introduci credențiale greșite
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement usernameInput = wait.until(
@@ -87,7 +86,6 @@ public class ContactAppLoginAndAddContactTests {
         driver.findElement(By.id("password")).sendKeys("1234567");
         driver.findElement(By.id("submit")).click();
 
-        // 3. Verifici mesajul de eroare
         WebElement errorMsg = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.id("error"))
         );
