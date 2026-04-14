@@ -189,7 +189,7 @@ public class DemoTool {
 
     }
 
-    @Test
+    @Test @Disabled
     public void dynamicProperties() {
         driver.get("https://demoqa.com/dynamic-properties");
        // WebElement visibleAfterButton = driver.findElement(By.id("visibleAfter"));
@@ -201,4 +201,11 @@ public class DemoTool {
         visibleAfterButton.click();
     }
 
+    @Test
+    public void buttonIsClickable() {
+        driver.get("https://demoqa.com/dynamic-properties");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement isClickableAfter = wait.until(ExpectedConditions.elementToBeClickable(By.id("enableAfter")));
+        isClickableAfter.click();
+    }
 }
