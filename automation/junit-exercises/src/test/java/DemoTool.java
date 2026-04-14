@@ -70,7 +70,7 @@ public class DemoTool {
         //WebElement emailParagraph = driver.findElement(By.id("email"));
     }
 
-    @Test
+    @Test @Disabled
     public void alerts() throws InterruptedException {
         driver.get("https://demoqa.com/alerts");
 
@@ -168,7 +168,7 @@ public class DemoTool {
 
 
     @Test @Disabled
-    public void elementAttributes()throws InterruptedException {
+    public void elementAttributes() throws InterruptedException {
         driver.get("https://demoqa.com/text-box");
         Thread.sleep(3000);
 
@@ -185,6 +185,13 @@ public class DemoTool {
         //get attribute
         System.out.println(header.getDomAttribute("class"));
 
+    }
+
+    @Test
+    public void dynamicProperties() {
+        driver.get("https://demoqa.com/dynamic-properties");
+        WebElement visibleAfterButton = driver.findElement(By.id("visibleAfter"));
+        visibleAfterButton.click();
     }
 
 }
