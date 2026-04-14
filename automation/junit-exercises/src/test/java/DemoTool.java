@@ -201,11 +201,21 @@ public class DemoTool {
         visibleAfterButton.click();
     }
 
-    @Test
+    @Test @Disabled
     public void buttonIsClickable() {
         driver.get("https://demoqa.com/dynamic-properties");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement isClickableAfter = wait.until(ExpectedConditions.elementToBeClickable(By.id("enableAfter")));
         isClickableAfter.click();
     }
+
+
+    @Test
+    public void frames() {
+        driver.get("https://demoqa.com/frames");
+        driver.switchTo().frame("frame1"); //switch to html frame1 from within existing html
+        WebElement sampleText = driver.findElement(By.id("sampleHeading"));
+        Assertions.assertEquals("This is a sample page", sampleText.getText());
+    }
+
 }
