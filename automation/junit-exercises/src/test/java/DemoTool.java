@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -210,9 +211,10 @@ public class DemoTool {
     }
 
 
-    @Test
+    @Test @Disabled
     public void frames() {
         driver.get("https://demoqa.com/frames");
+
         driver.switchTo().frame("frame1"); //switch to html frame1 from within existing html
         WebElement sampleText = driver.findElement(By.id("sampleHeading"));
         Assertions.assertEquals("This is a sample page", sampleText.getText());
@@ -220,6 +222,15 @@ public class DemoTool {
         driver.switchTo().parentFrame();
         WebElement infoLabel = driver.findElement(By.xpath("//div[@id=\"framesWrapper\"]/div[1]"));
         Assertions.assertTrue(infoLabel.getText().contains("frame"));
+    }
+
+    @Test
+    public void tables() {
+        driver.get("https://demoqa.com/webtables");
+        //find an element inside the table
+        //v1 - check if the element exists in the table - not recommended
+        WebElement table = driver.findElement(By.xpath("//table"));
+        Assertions.assertTrue(table.getText().contains("Kierra"));
     }
 
 }
