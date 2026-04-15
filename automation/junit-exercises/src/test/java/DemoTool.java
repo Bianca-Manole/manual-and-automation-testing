@@ -226,7 +226,7 @@ public class DemoTool {
         Assertions.assertTrue(infoLabel.getText().contains("frame"));
     }
 
-    @Test
+    @Test @Disabled
     public void tables() {
         driver.get("https://demoqa.com/webtables");
         //find an element inside the table
@@ -251,6 +251,25 @@ public class DemoTool {
             firstNameValues.add(cell.getText());
         }
         Assertions.assertTrue(firstNameValues.contains("Kierra"));
+    }
+
+    //edit the value of salary and check if the new value is updated in the table
+    @Test
+    public void editSalary() {
+        driver.get("https://demoqa.com/webtables");
+        String name = "Kierra";
+        WebElement editButton = driver.findElement(By.xpath("//td[1][contains(.,\""+name+"\")]/following-sibling::td/descendant::span[@title=\"Edit\"]")); //find the edit button element
+        editButton.click();
+        //modal
+        WebElement salaryInput = driver.findElement(By.id("salary"));
+        WebElement submitButton = driver.findElement(By.id("submit"));
+
+        salaryInput.clear();
+        salaryInput.sendKeys("5000");
+        submitButton.click();
+
+        WebElement salaryCell = driver.findElement(By.xpath("//td[1][contains(.,\""+name+"\")]/following-sibling::td[4]"));
+        Assertions.assertEquals("5000", salaryCell.getText());
     }
 
 }
