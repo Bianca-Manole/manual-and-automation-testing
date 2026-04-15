@@ -281,6 +281,8 @@ public class DemoTool {
 
         WebElement resultLabel = driver.findElement(By.id("result"));
         Assertions.assertTrue(resultLabel.getText().contains("home"));
+        //Assertions.assertTrue(homeCheckbox.isSelected()); - works only if the checkbox is defined as checkbox in html
+        Assertions.assertEquals("true", homeCheckbox.getDomAttribute("aria-checked")); // works if the checkbox is not defined as a checkbox - check the attributes
     }
 
 }
