@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class DemoTool {
 
@@ -231,6 +232,18 @@ public class DemoTool {
         //v1 - check if the element exists in the table - not recommended
         WebElement table = driver.findElement(By.xpath("//table"));
         Assertions.assertTrue(table.getText().contains("Kierra"));
+
+        //v2 - take all elements from column First Name
+        List<WebElement> firstNameCells = driver.findElements(By.xpath("//tr/td[1]"));
+        //v2.a -  with foreach
+        boolean isPresent = false;
+        for(WebElement cell:firstNameCells) {
+            if(cell.getText().equalsIgnoreCase("Kierra")) {
+                isPresent = true;
+                break;
+            }
+        }
+        Assertions.assertTrue(isPresent);
     }
 
 }
