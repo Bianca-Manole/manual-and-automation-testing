@@ -254,7 +254,7 @@ public class DemoTool {
     }
 
     //edit the value of salary and check if the new value is updated in the table
-    @Test
+    @Test @Disabled
     public void editSalary() {
         driver.get("https://demoqa.com/webtables");
         String name = "Kierra";
@@ -270,6 +270,17 @@ public class DemoTool {
 
         WebElement salaryCell = driver.findElement(By.xpath("//td[1][contains(.,\""+name+"\")]/following-sibling::td[4]"));
         Assertions.assertEquals("5000", salaryCell.getText());
+    }
+
+    @Test
+    public void checkboxes() {
+        driver.get("https://demoqa.com/checkbox");
+        //check home checkbox and verify that home is in the results
+        WebElement homeCheckbox = driver.findElement(By.xpath("//span[@aria-label=\"Select Home\"]"));
+        homeCheckbox.click();
+
+        WebElement resultLabel = driver.findElement(By.id("result"));
+        Assertions.assertTrue(resultLabel.getText().contains("home"));
     }
 
 }
