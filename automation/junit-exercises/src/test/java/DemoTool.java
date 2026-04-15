@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DemoTool {
@@ -235,7 +236,7 @@ public class DemoTool {
 
         //v2 - take all elements from column First Name
         List<WebElement> firstNameCells = driver.findElements(By.xpath("//tr/td[1]"));
-        //v2.a -  with foreach
+        //v2.a
         boolean isPresent = false;
         for(WebElement cell:firstNameCells) {
             if(cell.getText().equalsIgnoreCase("Kierra")) {
@@ -244,6 +245,12 @@ public class DemoTool {
             }
         }
         Assertions.assertTrue(isPresent);
+        //v2.b - Recommended
+        List<String> firstNameValues = new ArrayList<>();
+        for(WebElement cell:firstNameCells) {
+            firstNameValues.add(cell.getText());
+        }
+        Assertions.assertTrue(firstNameValues.contains("Kierra"));
     }
 
 }
