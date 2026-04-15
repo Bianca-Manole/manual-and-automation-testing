@@ -281,8 +281,17 @@ public class DemoTool {
 
         WebElement resultLabel = driver.findElement(By.id("result"));
         Assertions.assertTrue(resultLabel.getText().contains("home"));
+        //check if the checkbox is checked
         //Assertions.assertTrue(homeCheckbox.isSelected()); - works only if the checkbox is defined as checkbox in html
         Assertions.assertEquals("true", homeCheckbox.getDomAttribute("aria-checked")); // works if the checkbox is not defined as a checkbox - check the attributes
+
+        //check that the home folder icon is closed by default and will open after toggle click
+        WebElement homeFolderIcon = driver.findElement(By.xpath("//span[@title=\"Home\"]/span[1]"));
+        Assertions.assertTrue(homeFolderIcon.getDomAttribute("class").contains("close"));
+
+        WebElement homeToggle = driver.findElement(By.xpath("//span[@title=\"Home\"]/preceding-sibling::span[contains(@class,\"switcher\")]"));
+        homeToggle.click();
+        Assertions.assertTrue(homeFolderIcon.getDomAttribute("class").contains("open"));
     }
 
 }
