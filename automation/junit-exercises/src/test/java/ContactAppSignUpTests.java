@@ -32,7 +32,7 @@ public class ContactAppSignUpTests {
         chromeOption.addArguments("guest");
 
         System.setProperty("webdriver.chrome.driver", "src/source/chromedriver.exe");
-        driver = new ChromeDriver(chromeOption); // ← o singura data!
+        driver = new ChromeDriver(chromeOption);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
