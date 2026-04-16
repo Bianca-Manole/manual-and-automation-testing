@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
@@ -34,10 +35,9 @@ public class AddContactTests {
         login("bianca_manole@outlook.com", "1234567");
     }
 
-    public static void login(String email, String password) {
-        driver.findElement(By.id("email")).sendKeys(email);
-        driver.findElement(By.id("password")).sendKeys(password);
-        driver.findElement(By.id("submit")).click();
+    @AfterAll
+    public static void after() {
+        driver.quit();
     }
 
     @BeforeEach
@@ -45,5 +45,9 @@ public class AddContactTests {
         driver.get("https://thinking-tester-contact-list.herokuapp.com/addContact");
     }
 
-
+    public static void login(String email, String password) {
+        driver.findElement(By.id("email")).sendKeys(email);
+        driver.findElement(By.id("password")).sendKeys(password);
+        driver.findElement(By.id("submit")).click();
+    }
 }
